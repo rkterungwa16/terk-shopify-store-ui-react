@@ -1,4 +1,4 @@
-const heroData = {
+const heroSchema = {
   name: "t:names.hero",
   tag: "section",
   class: "hero-wrapper section-wrapper",
@@ -755,4 +755,4 @@ const heroData = {
   ],
 };
 
-export default heroData;
+export default heroSchema;

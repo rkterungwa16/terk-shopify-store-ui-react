@@ -1,0 +1,50 @@
+/* Layout */
+.content-for-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-for-layout > .shopify-section:last-child {
+  flex-grow: 1;
+}
+
+/* Set up page widths & margins */
+.page-width-wide,
+.page-width-normal,
+.page-width-narrow,
+.page-width-content {
+  --page-margin: 16px;
+}
+
+@media screen and (min-width: 750px) {
+  .page-width-wide,
+  .page-width-normal,
+  .page-width-narrow,
+  .page-width-content {
+    --page-margin: 40px;
+  }
+}
+
+.page-width-wide {
+  /* NOTE: This results in a page width of 2400px because of how we set up margins with grid */
+  --page-content-width: var(--wide-page-width);
+  --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
+}
+
+.page-width-normal {
+  --page-content-width: var(--normal-page-width);
+  --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
+}
+
+.page-width-narrow,
+.page-width-content {
+  /* NOTE: This results in a page width of 1400px because of how we set up margins with grid */
+  --page-content-width: var(--narrow-page-width);
+  --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
+}
+
+.page-width-content {
+  --page-content-width: var(--normal-content-width);
+  --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
+}

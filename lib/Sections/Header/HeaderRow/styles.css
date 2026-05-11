@@ -1,0 +1,23 @@
+.header__row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.header__column {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.header__column--left {
+  justify-content: flex-start;
+}
+.header__column--center {
+  justify-content: center;
+}
+
+.header__column--right {
+  justify-content: flex-end;
+}

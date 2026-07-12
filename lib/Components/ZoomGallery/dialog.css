@@ -1,0 +1,67 @@
+dialog.zoom-dialog::backdrop {
+  background: rgba(10, 8, 6, 0.6);
+}
+dialog.zoom-dialog[open] {
+  animation: iris-open 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+dialog.zoom-dialog.iris-closing {
+  animation: iris-close 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes iris-open {
+  from {
+    clip-path: circle(0% at var(--origin-x, 50%) var(--origin-y, 50%));
+    opacity: 0.4;
+  }
+  to {
+    clip-path: circle(150vmax at var(--origin-x, 50%) var(--origin-y, 50%));
+    opacity: 1;
+  }
+}
+@keyframes iris-close {
+  from {
+    clip-path: circle(150vmax at var(--origin-x, 50%) var(--origin-y, 50%));
+    opacity: 1;
+  }
+  to {
+    clip-path: circle(0% at var(--origin-x, 50%) var(--origin-y, 50%));
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  dialog.zoom-dialog[open],
+  dialog.zoom-dialog.iris-closing {
+    animation: none;
+  }
+}
+
+.zoom-thumb:hover,
+.zoom-thumb:focus-visible {
+  border-color: #b8763e !important;
+}
+.zoom-close-btn:hover,
+.zoom-close-btn:focus-visible {
+  border-color: #9c3428 !important;
+  transform: rotate(90deg);
+}
+.zoom-cue-btn:hover,
+.zoom-cue-btn:focus-visible {
+  transform: scale(1.06);
+  border-color: #d99457 !important;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+.zoom-dialog__close {
+  all: unset;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  transition:
+    border-color 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
